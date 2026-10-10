@@ -2,7 +2,7 @@
 
 Santiago Duque Mora y Geraldine Ríos. Video separado. Duración estimada de lectura: 6 a 8 minutos con pausas; comprobar duración al montar. Máximo: 10 minutos.
 
-Los textos siguientes son un guion propuesto, no una grabación terminada. Las cifras corresponden a docs/resultados. La captura y el montaje de pantallas se preparan a partir del código y sus salidas; los integrantes no necesitan grabar la pantalla. Santiago se mantiene en ventana pequeña, con rostro y camiseta azul oscura, sin el subtítulo retirado. Conservar la voz y el acento de Geraldine. No reutilizar audios de Actividad 2 como si explicaran estos resultados.
+Guion para revisión. Las indicaciones de pantalla sirven para el montaje y no se leen en voz alta. Las cifras corresponden a los resultados guardados en el repositorio.
 
 ## 01 · Santiago · Presentación
 
@@ -14,7 +14,7 @@ Somos Santiago Duque Mora y Geraldine Ríos. Esta es la Actividad 4, sobre apren
 
 Pantalla: dataset_transporte.csv y Descripcion_datos.pdf
 
-Trabajamos con cinco mil escenarios simulados de ocho estaciones. Tras retirar veintisiete duplicados exactos quedan cuatro mil novecientos setenta y tres filas. La fórmula y la semilla están documentadas. Las cifras no son observaciones oficiales. Conservamos el archivo inicial de TransMilenio como antecedente, pero la muestra actual fue generada para mantener el transporte del proyecto anterior.
+Trabajamos con cinco mil escenarios simulados de ocho estaciones. Tras retirar veintisiete duplicados exactos quedan cuatro mil novecientos setenta y tres filas. La fórmula y la semilla están documentadas. Las cifras no son observaciones oficiales. Cada fila describe una estación y una franja horaria, con variables que permiten comparar distintos escenarios de demanda.
 
 ## 03 · Santiago · Ejecución
 

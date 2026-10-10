@@ -1,4 +1,4 @@
-"""Actividad 4. K-Means y agrupamiento jerárquico; continuidad del código de Geraldine."""
+"""Aprendizaje no supervisado: demanda del Metro con K-Means y agrupamiento jerárquico."""
 from pathlib import Path
 import argparse,json,platform
 import matplotlib

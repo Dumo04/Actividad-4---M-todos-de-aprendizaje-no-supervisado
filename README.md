@@ -1,52 +1,39 @@
-# Actividad 4 — Métodos de aprendizaje no supervisado
+# Actividad 4 - Métodos de aprendizaje no supervisado
 
-Santiago Duque Mora y Geraldine Ríos · Inteligencia Artificial · Sandra Isabel Rodriguez Bautista.
+**Integrantes:** Santiago Duque Mora y Geraldine Ríos.
+**Docente:** Sandra Isabel Rodriguez Bautista.
 
-Continuación de [Actividad 2 — Metro de Medellín](https://github.com/Dumo04/actividad2-rutas-metro-medellin). Se conservan el historial y el planteamiento de los modelos de Geraldine. La propuesta adapta los escenarios al mismo sistema de transporte de la entrega anterior.
+Agrupamiento de escenarios de demanda del Metro de Medellín mediante K-Means y agrupamiento jerárquico. El proyecto continúa el sistema de transporte trabajado en la [Actividad 2](https://github.com/Dumo04/actividad2-rutas-metro-medellin).
 
-## Datos y alcance
+## Datos
 
-`dataset_transporte.csv` contiene **5.000 escenarios simulados**, no mediciones oficiales. El generador, semilla 42, fórmula, supuestos y hash están disponibles en `generar_dataset.py` y `dataset_transporte.metadata.json`. Se obtuvieron 4.973 filas tras retirar 27 duplicados exactos. Ocho estaciones pertenecen al modelo anterior; sus parámetros de demanda son hipotéticos.
+El archivo `dataset_transporte.csv` contiene 5.000 registros simulados de ocho estaciones. Se generaron con semilla 42 y quedaron 4.973 registros después de eliminar duplicados. Son datos de ejemplo para la actividad, no mediciones oficiales del Metro.
 
-El CSV anterior de TransMilenio se preserva en `datos_originales/`, con procedencia no verificada. No se cambiaron simplemente los nombres de sus estaciones: la nueva muestra se genera explícitamente. No se usa el archivo anterior para entrenar ni para obtener los resultados publicados.
+La descripción de las variables y los criterios de generación se encuentran en [Descripcion_datos.pdf](docs/Descripcion_datos.pdf). El archivo anterior se conserva en `datos_originales/` como referencia y no se usa en el modelo actual.
 
-## Reproducir
+## Ejecución
 
-Python 3.12, desde esta carpeta:
+Con Python 3.12, instalar las dependencias y ejecutar:
 
 ```sh
-python -m venv .venv
-# Windows: .venv\Scripts\activate
-# macOS/Linux: source .venv/bin/activate
 python -m pip install -r requirements.txt
-python generar_dataset.py
 python clustering.py
 python -m unittest discover -s tests -v
-python generar_documentos.py
 ```
 
-`clustering.py` también acepta `--datos archivo.csv --salida carpeta`. Los valores predeterminados se resuelven desde el archivo del programa, por lo que funciona desde otra carpeta. Las salidas se crean automáticamente.
+Para volver a generar los datos: `python generar_dataset.py`. Para actualizar los PDF después de ejecutar el modelo: `python generar_documentos.py`.
 
-## Entregables
+## Resultados
 
-- [Datos](dataset_transporte.csv), [procedencia y parámetros](dataset_transporte.metadata.json), [generador](generar_dataset.py).
-- [Código Python](clustering.py) y [validaciones](datos.py).
+Se evaluaron entre 2 y 8 grupos. La mejor silueta fue 0,4854 con 7 grupos. También se construyeron tres grupos de estaciones con Ward. Las 14 pruebas unitarias pasaron. Las gráficas, métricas y salidas se guardan en `docs/resultados/`. Estos resultados corresponden a la muestra simulada.
+
+## Archivos de entrega
+
+- [Dataset](dataset_transporte.csv).
+- [Código Python](clustering.py).
 - [Descripción de los datos](docs/Descripcion_datos.pdf).
-- [Pruebas y resultados reales](docs/Pruebas_componente.pdf).
-- [Métricas JSON](docs/resultados/metricas.json), [salida de ejecución](docs/resultados/ejecucion.txt) y [pruebas unitarias](docs/resultados/pruebas.txt).
-- [Documento de entrega provisional](docs/Entrega_Actividad4.pdf).
-- [Guion para Santiago y Geraldine](docs/Guion_video.md).
+- [Pruebas realizadas](docs/Pruebas_componente.pdf).
+- [Documento de entrega](docs/Entrega_Actividad4.pdf).
+- [Guion del video](docs/Guion_video.md).
 
-## Estado académico y revisión
-
-El código, los datos y los documentos técnicos se proponen para revisión. **La entrega completa sigue pendiente de dos acciones externas:** producir y publicar el video de esta actividad con participación de ambos integrantes, y agregar a la docente como colaboradora cuando se conozca su usuario de GitHub. La visibilidad pública no equivale a esa invitación.
-
-No se reutiliza el enlace del video de la Actividad 2. Cuando exista el nuevo video, actualizar `video` en `entrega.json` y regenerar los PDF. Los enlaces al repositorio apuntan a `main` del repositorio de Geraldine y resolverán los archivos nuevos después de integrar esta propuesta. Antes de ello se revisan desde la rama de la solicitud.
-
-El enunciado solicita revisar el capítulo 16 (técnicas de agrupamiento) de Palma Méndez (2008). Ese texto no está incorporado a este repositorio ni se afirma haber verificado su contenido. Las referencias técnicas consultadas están en el documento de datos.
-
-## Aportes y limitaciones
-
-El historial original conserva los commits de Geraldine. Los commits nuevos registran la adaptación, evaluación, pruebas y documentación preparadas en la cuenta de Santiago; no se fabrican contribuciones o aprobaciones de otra persona. Geraldine puede revisar y realizar sus correcciones antes de integrar a `main`.
-
-Estos experimentos demuestran funcionamiento sobre escenarios simulados, no validez operativa. Las cifras de pasajeros no son capacidades ni porcentajes de ocupación de trenes; los umbrales baja/media/alta son académicos. Para producción se necesitan datos autorizados por estación y tiempo, validación temporal y evaluación de sesgos.
+**Pendiente:** agregar el enlace del video e invitar a la docente como colaboradora. El enlace se actualiza en `entrega.json`.
