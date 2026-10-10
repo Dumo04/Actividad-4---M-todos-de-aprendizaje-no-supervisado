@@ -1,0 +1,72 @@
+[
+  {
+    "bloque": 1,
+    "persona": "Santiago",
+    "tema": "Presentación",
+    "pantalla": "README.md",
+    "texto": "Somos Santiago Duque Mora y Geraldine Ríos. Esta es la Actividad 4, sobre aprendizaje no supervisado. Continuamos con el Metro de Medellín y la misma muestra usada en la Actividad 3. Esta vez no queremos predecir una clase conocida: buscamos grupos de escenarios y estaciones que compartan características de demanda."
+  },
+  {
+    "bloque": 2,
+    "persona": "Geraldine",
+    "tema": "Datos y continuidad",
+    "pantalla": "dataset_transporte.csv y Descripcion_datos.pdf",
+    "texto": "Trabajamos con cinco mil escenarios simulados de ocho estaciones. Tras retirar veintisiete duplicados exactos quedan cuatro mil novecientos setenta y tres filas. La fórmula y la semilla están documentadas. Las cifras no son observaciones oficiales. Conservamos el archivo inicial de TransMilenio como antecedente, pero la muestra actual fue generada para mantener el transporte del proyecto anterior."
+  },
+  {
+    "bloque": 3,
+    "persona": "Santiago",
+    "tema": "Ejecución",
+    "pantalla": "clustering.py y docs/resultados/ejecucion.txt",
+    "texto": "Después de instalar las dependencias, ejecutamos python clustering punto py. El programa carga y valida los datos, crea la carpeta de salida y produce los perfiles, las gráficas y las métricas. Las pantallas de este video corresponden a esas salidas reales. También podemos indicar otra ruta de datos o de resultados mediante los argumentos que aparecen en el archivo de instrucciones."
+  },
+  {
+    "bloque": 4,
+    "persona": "Geraldine",
+    "tema": "Variables y escalado",
+    "pantalla": "clustering.py: preparar y COLUMNAS",
+    "texto": "Para K medias seleccionamos hora, pasajeros y una variable que indica si el día es no laborable. Esta última combina fines de semana y festivos. No utilizamos nivel de ocupación y el programa funciona incluso cuando esa columna no existe. Estandarizamos las tres variables para que la escala numérica de pasajeros no domine únicamente por sus unidades. La variable no laborable tiene una influencia fuerte en los grupos y debemos tenerla en cuenta al interpretar."
+  },
+  {
+    "bloque": 5,
+    "persona": "Santiago",
+    "tema": "Elección del número de grupos",
+    "pantalla": "docs/resultados/codo_silueta.png",
+    "texto": "Evaluamos entre dos y ocho grupos. El método del codo muestra cómo disminuye la inercia al añadir grupos. También calculamos la silueta, que compara la cercanía de cada ejemplo a su grupo frente a otros. Entre los valores probados, siete grupos obtienen la mejor silueta, aproximadamente cero coma cuatrocientos ochenta y cinco. Esto no prueba un número perfecto para cualquier conjunto de datos; es la mejor opción según este criterio y este intervalo."
+  },
+  {
+    "bloque": 6,
+    "persona": "Geraldine",
+    "tema": "Perfiles y proyección",
+    "pantalla": "perfil_clusters.csv y clusters_pca.png",
+    "texto": "Los perfiles permiten describir los grupos con sus unidades originales. Por ejemplo, un grupo reúne escenarios laborables de la mañana, con una hora media cercana a siete coma dos y alrededor de mil veinticuatro pasajeros. Otro reúne escenarios laborables de la tarde, cerca de las dieciocho horas y mil ciento dieciocho pasajeros. Los identificadores de los grupos son arbitrarios: no son etiquetas baja, media o alta. La proyección con componentes principales ayuda a ver los grupos en dos dimensiones, pero el modelo se entrenó con las tres variables estandarizadas."
+  },
+  {
+    "bloque": 7,
+    "persona": "Santiago",
+    "tema": "Agrupamiento de estaciones",
+    "pantalla": "dendrograma_estaciones.png y grupos_estaciones.csv",
+    "texto": "También construimos un perfil por estación con demanda media en pico, valle y fin de semana, además de la razón descriptiva entre escenarios con y sin lluvia. Aplicamos agrupamiento jerárquico con enlace Ward. El dendrograma muestra cómo se van uniendo las estaciones. Elegimos tres grupos para explorar sus diferencias, sin afirmar que ese número sea óptimo. La razón de lluvia no demuestra un efecto causal y todos los perfiles siguen dependiendo de la simulación."
+  },
+  {
+    "bloque": 8,
+    "persona": "Geraldine",
+    "tema": "Pruebas y estabilidad",
+    "pantalla": "docs/resultados/pruebas.txt y metricas.json",
+    "texto": "Ejecutamos catorce pruebas automatizadas y todas pasaron. Verifican la carga de datos, el escalado, la ejecución sin etiqueta objetivo y el rechazo de perfiles incompletos. Cambiar las etiquetas no altera la matriz utilizada para agrupar. Además, comparamos particiones obtenidas con otras tres semillas mediante el índice Rand ajustado. Esta comparación evalúa estabilidad ante la inicialización; no compara con una verdad de grupos que no tenemos."
+  },
+  {
+    "bloque": 9,
+    "persona": "Santiago",
+    "tema": "Conclusión",
+    "pantalla": "PDF de pruebas y enlaces de entrega",
+    "texto": "El componente permite explorar patrones sin una respuesta etiquetada. Se entregan los datos, el código, la descripción, las pruebas y las visualizaciones. Los grupos son útiles para comprender el método, pero no justifican decisiones operativas reales. El siguiente paso sería obtener mediciones verificadas y evaluar si estos perfiles se mantienen en el tiempo."
+  },
+  {
+    "bloque": 10,
+    "persona": "Geraldine",
+    "tema": "Cierre",
+    "pantalla": "Repositorio",
+    "texto": "La diferencia con la Actividad 3 es el objetivo: allí clasificamos ejemplos con etiquetas; aquí descubrimos agrupaciones a partir de sus características. Ambos ejercicios continúan el proyecto del Metro de Medellín. Gracias."
+  }
+]
